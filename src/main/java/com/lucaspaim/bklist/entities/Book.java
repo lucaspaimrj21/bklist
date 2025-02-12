@@ -19,6 +19,7 @@ public class Book {
 	
 	private String title;
 	private String publisher;
+	private String author;
 	private Integer numberOfPages;
 	private Integer yearOfPublication;
 	
@@ -32,11 +33,12 @@ public class Book {
 		
 	}
 
-	public Book(Long id, String title, String publisher, Integer numberOfPages, Integer yearOfPublication,
+	public Book(Long id, String title, String publisher, String author, Integer numberOfPages, Integer yearOfPublication,
 			String synopsis, String isbn10, String isbn13) {
 		this.id = id;
 		this.title = title;
 		this.publisher = publisher;
+		this.author = author;
 		this.numberOfPages = numberOfPages;
 		this.yearOfPublication = yearOfPublication;
 		this.synopsis = synopsis;
@@ -66,6 +68,14 @@ public class Book {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public Integer getNumberOfPages() {
