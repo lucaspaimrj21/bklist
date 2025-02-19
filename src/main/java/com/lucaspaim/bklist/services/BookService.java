@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lucaspaim.bklist.dto.BookDTO;
 import com.lucaspaim.bklist.dto.BookMinDTO;
 import com.lucaspaim.bklist.entities.Book;
+import com.lucaspaim.bklist.projections.BookMinProjection;
 import com.lucaspaim.bklist.repositories.BookRepository;
 
 
@@ -32,5 +33,14 @@ public class BookService {
 		List<BookMinDTO> dto = result.stream().map(x -> new BookMinDTO(x)).toList();
 		return dto;
 	}
+	
+	@Transactional(readOnly = true)
+	public List<BookMinDTO> findbyList(long listId) {
+		List<BookMinProjection> result = bookRepository.searchByList(listId);
+		List<BookMinDTO> dto = result.stream().map(x -> new BookMinDTO(x)).toList();
+		return dto;
+	}
+	
+	
 
 }

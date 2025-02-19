@@ -1,6 +1,7 @@
 package com.lucaspaim.bklist.dto;
 
 import com.lucaspaim.bklist.entities.Book;
+import com.lucaspaim.bklist.projections.BookMinProjection;
 
 public class BookMinDTO {
 	
@@ -18,6 +19,13 @@ public class BookMinDTO {
 		title = entity.getTitle();
 		publisher = entity.getPublisher();
 		author = entity.getAuthor();
+	}
+	
+	public BookMinDTO(BookMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		publisher = projection.getPublisher();
+		author = projection.getAuthor();
 	}
 
 	public Long getId() {
